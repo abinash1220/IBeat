@@ -4,6 +4,7 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/controllers/settings_controller.dart';
+import 'package:i_beat/screens/settings_screen/archive_screen.dart';
 import 'package:i_beat/screens/settings_screen/device_screen.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -68,6 +69,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
              onTap: (){
                setState(() {
                  settingsController.drawerIndex(1);
+                 Get.to(const ArchiveScreen());
                });
             },
             child: Padding(
