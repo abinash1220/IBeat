@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
+import 'package:i_beat/constants/cap.dart';
+import 'package:i_beat/screens/home_screen/widget/add_symtoms_container.dart';
+import 'package:i_beat/screens/home_screen/widget/diary_event_container.dart';
 import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
 
 class UserDataScreen extends StatefulWidget {
@@ -41,7 +44,10 @@ class _UserDataScreenState extends State<UserDataScreen> {
                      fontWeight: FontWeight.w600,
                      color: AppColors.textBlack
                    ),
-                ),
+              ),
+              Gap(height: 15,),
+              DiaryEventContainer(),
+             //AddSymtomsContainer()
                 
           ],
         ),
