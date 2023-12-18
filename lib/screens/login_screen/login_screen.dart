@@ -5,6 +5,7 @@ import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/hooks/next_button.dart';
 import 'package:i_beat/screens/forgot_password/forgot_password_screen.dart';
 import 'package:i_beat/screens/login_screen/qr_manual_screen.dart';
+import 'package:i_beat/screens/login_screen/qr_screen.dart';
 import 'package:i_beat/screens/register_screen/user_detail_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -49,15 +50,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Scan QR Code",
-                        style: primaryFont.copyWith(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.white
-                     ),),
+                      InkWell(
+                        onTap: (){
+                          Get.to(const QrManualScreen());
+                        },
+                        child: Text("Scan QR Code",
+                          style: primaryFont.copyWith(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.white
+                                             ),),
+                      ),
                      InkWell(
                       onTap: (){
-                        Get.to(const QrManualScreen());
+                        Get.to(const QRViewExample());
                       },
                        child: Container(
                         height: 68,

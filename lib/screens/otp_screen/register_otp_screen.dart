@@ -4,6 +4,7 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/hooks/next_button.dart';
+import 'package:i_beat/screens/bottom_nav_bar/home_bottom_bar_screen.dart';
 import 'package:i_beat/screens/home_screen/home_screen.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -122,7 +123,7 @@ class _RegisterOtpScreenState extends State<RegisterOtpScreen> {
                       Gap(height: 40,),
                       InkWell(
                 onTap: (){
-                  Get.to(const HomeScreen());
+                  Get.to(HomeBottomBar());
                 },
                 child: NextButton(text: "Verify")),
             ],

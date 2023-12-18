@@ -10,6 +10,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  List<String> items = ['1','2','3','4','5','6','7','8','9','10','1','2','3','4','5','6','7','8'];
+  List<String> selectedItems = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,12 +35,34 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: AppColors.white,
         child: DrawerScreen(),
         ),
-        body:const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              
-            ],
+        body: Padding(
+          padding:const EdgeInsets.all(8.0),
+          child: RawScrollbar(
+                    thumbColor: Colors.redAccent,
+                    radius: const Radius.circular(20),
+                    thickness: 5,
+            child: Container(
+              height: 200,
+              child: ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      String item = items[index];
+                      return ListTile(
+              title: Text(item),
+              onTap: () {
+                setState(() {
+                  if (selectedItems.contains(item)) {
+                    selectedItems.remove(item);
+                  } else {
+                    selectedItems.add(item);
+                  }
+                });
+              },
+              tileColor: selectedItems.contains(item) ? Colors.blue : null,
+                      );
+                    },
+                  ),
+            ),
           ),
         ),
     );

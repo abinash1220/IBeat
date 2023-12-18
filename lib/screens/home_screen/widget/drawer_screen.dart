@@ -4,6 +4,8 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/controllers/settings_controller.dart';
+import 'package:i_beat/screens/bottom_nav_bar/home_bottom_bar_screen.dart';
+import 'package:i_beat/screens/bottom_nav_bar/settings_bottom_bar_screen.dart';
 import 'package:i_beat/screens/settings_screen/archive_screen.dart';
 import 'package:i_beat/screens/settings_screen/device_screen.dart';
 
@@ -32,7 +34,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                setState(() {
                  settingsController.drawerIndex(0);
                });
-               Get.off(const DeviceScreen());
+               Get.off(HomeBottomBar());
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 20),
@@ -108,7 +110,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                setState(() {
                  settingsController.drawerIndex(2);
                });
-               Get.to(const DeviceScreen());
+               Get.to(SettingBottomBar());
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 20),

@@ -16,7 +16,7 @@ class _DeviceScreenState extends State<DeviceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.white,
+      backgroundColor: AppColors.white,
       appBar: PreferredSize(
         preferredSize:const Size.fromHeight(90),
         child: Padding(
