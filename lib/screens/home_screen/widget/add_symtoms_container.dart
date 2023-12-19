@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
@@ -25,6 +26,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
            ),
         ),
         Gap(height: 15,),
+                
         Container(
           height: 260,
           width: double.infinity,
@@ -39,267 +41,287 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Row(
-                  children: [
-                    Text("Dizziness",
-                    textAlign: TextAlign.end,
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
+                  FadeInLeft(
+                    child: Row(
+                    children: [
+                      Text("Dizziness",
+                      textAlign: TextAlign.end,
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
+                      Gap(width: 5,),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/chest.png"),
-                        height: 24,
-                        width: 24,),
+                    ],
+                                    ),
+                  ),
+                 FadeInLeft(
+                   child: Row(
+                    children: [
+                      Text("Shortness\nof Breath",
+                      textAlign: TextAlign.end,
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                 Row(
-                  children: [
-                    Text("Shortness\nof Breath",
-                    textAlign: TextAlign.end,
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
+                      Gap(width: 5,),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
+                    ],
+                                   ),
+                 ),
+                 FadeInLeft(
+                   child: Row(
+                    children: [
+                      Text("Body Pain",
+                      textAlign: TextAlign.end,
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/chest.png"),
-                        height: 24,
-                        width: 24,),
+                      Gap(width: 5,),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                 Row(
-                  children: [
-                    Text("Body Pain",
-                    textAlign: TextAlign.end,
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
+                    ],
+                                   ),
+                 ),
+                 FadeInLeft(
+                   child: Row(
+                    children: [
+                      Text("Chest\nDiscomfort",
+                      textAlign: TextAlign.end,
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
+                      Gap(width: 5,),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/chest.png"),
-                        height: 24,
-                        width: 24,),
+                    ],
+                                   ),
+                 ),
+                 FadeInLeft(
+                   child: Row(
+                    children: [
+                      Text("Profuse\nSweating",
+                      textAlign: TextAlign.end,
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                 Row(
-                  children: [
-                    Text("Chest\nDiscomfort",
-                    textAlign: TextAlign.end,
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
+                      Gap(width: 5,),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
-                      ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/chest.png"),
-                        height: 24,
-                        width: 24,),
-                      ),
-                    ),
-                  ],
-                ),
-                 Row(
-                  children: [
-                    Text("Profuse\nSweating",
-                    textAlign: TextAlign.end,
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
-                      ),
-                    ),
-                    Gap(width: 5,),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
-                      ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/chest.png"),
-                        height: 24,
-                        width: 24,),
-                      ),
-                    ),
-                  ],
-                ),
+                    ],
+                                   ),
+                 ),
                 ],
               ),
-              const Image(image: AssetImage("assets/images/man.png"),height: 240,),
+              FadeInUp(child: const Image(image: AssetImage("assets/images/man.png"),height: 240,)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                       Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
+                       FadeInRight(
+                         child: Row(
+                                           children: [
+                                             Container(
+                                               height: 30,
+                                               width: 30,
+                                               decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                                               ),
+                                               child:const Center(
+                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          height: 24,
+                          width: 24,),
+                                               ),
+                                             ),
+                                             Gap(width: 5,),
+                                             Text("Fatigue",
+                                               style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                                               ),
+                                             ),
+                                           ],
+                                         ),
+                       ),
+                FadeInRight(
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/cold.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/chest.png"),
-                        height: 24,
-                        width: 24,),
+                      Gap(width: 5,),
+                      Text("Insomia",
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Text("Fatigue",
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
+                FadeInRight(
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.blue,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/sleep.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/cold.png"),
-                        height: 24,
-                        width: 24,),
+                      Gap(width: 5,),
+                      Text("Palpitation",
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Text("Insomia",
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.blue,
-                        borderRadius: BorderRadius.circular(5)
+                FadeInRight(
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/pain.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/sleep.png"),
-                        height: 24,
-                        width: 24,),
+                      Gap(width: 5,),
+                      Text("Nausea",
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Text("Palpitation",
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
+                FadeInRight(
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child:const Center(
+                          child: Image(image: AssetImage("assets/icons/pain.png"),
+                          height: 24,
+                          width: 24,),
+                        ),
                       ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/pain.png"),
-                        height: 24,
-                        width: 24,),
+                      Gap(width: 5,),
+                      Text("Indigestion",
+                        style: primaryFont.copyWith(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w400,
+                         color: AppColors.textBlack
+                        ),
                       ),
-                    ),
-                    Gap(width: 5,),
-                    Text("Nausea",
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(5)
-                      ),
-                      child:const Center(
-                        child: Image(image: AssetImage("assets/icons/pain.png"),
-                        height: 24,
-                        width: 24,),
-                      ),
-                    ),
-                    Gap(width: 5,),
-                    Text("Indigestion",
-                      style: primaryFont.copyWith(
-                       fontSize: 12,
-                       fontWeight: FontWeight.w400,
-                       color: AppColors.textBlack
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 ],
               )

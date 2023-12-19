@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:i_beat/constants/app_colors.dart';
+import 'package:i_beat/constants/app_fonts.dart';
+import 'package:i_beat/constants/cap.dart';
+import 'package:i_beat/screens/home_screen/widget/add_symtoms_container.dart';
+import 'package:i_beat/screens/home_screen/widget/diary_event_container.dart';
 import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,10 +13,17 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
-  List<String> items = ['1','2','3','4','5','6','7','8','9','10','1','2','3','4','5','6','7','8'];
-  List<String> selectedItems = [];
+  TabController? tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    
+    // Error: Invalid reference to 'this' expression
+   tabController = TabController(vsync: this, length: 3);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,35 +47,85 @@ class _HomeScreenState extends State<HomeScreen> {
         child: DrawerScreen(),
         ),
         body: Padding(
-          padding:const EdgeInsets.all(8.0),
-          child: RawScrollbar(
-                    thumbColor: Colors.redAccent,
-                    radius: const Radius.circular(20),
-                    thickness: 5,
-            child: Container(
-              height: 200,
-              child: ListView.builder(
-                    itemCount: items.length,
-                    itemBuilder: (context, index) {
-                      String item = items[index];
-                      return ListTile(
-              title: Text(item),
-              onTap: () {
-                setState(() {
-                  if (selectedItems.contains(item)) {
-                    selectedItems.remove(item);
-                  } else {
-                    selectedItems.add(item);
-                  }
-                });
-              },
-              tileColor: selectedItems.contains(item) ? Colors.blue : null,
-                      );
-                    },
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Container(
+                 height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: AppColors.wBlue,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    
+                    child: TabBar(
+                      indicator: BoxDecoration(
+                              color: AppColors.blue,
+                              borderRadius: BorderRadius.circular(30)
+                        ),
+                        controller: tabController,
+                        isScrollable: true,
+                        //labelPadding: EdgeInsets.symmetric(horizontal: 20),
+                        tabs: [
+                          Expanded(
+                            child: Container(
+                              child: Tab(
+                                child: Text("Patient\nDashboard",
+                                    textAlign: TextAlign.center,
+                                           style: primaryFont.copyWith(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.textBlack
+                                      ),
+                                  ),
+                              ),
+                            ),
+                          ),
+                            Expanded(
+                              child: Container(
+                                child: Tab(
+                                  child: Text("Add\nSymptoms",
+                                    textAlign: TextAlign.center,
+                                           style: primaryFont.copyWith(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.textBlack
+                                      ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                child: Tab(
+                                  child: Text("Diary\nEvents",
+                                    textAlign: TextAlign.center,
+                                           style: primaryFont.copyWith(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.textBlack
+                                      ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                        ],
+                    ),
+              ),
+              Gap(height: 30,),
+              Expanded(
+                child: TabBarView(
+                  controller: tabController,
+                  children: [
+                    AddSymtomsContainer(),
+                    DiaryEventContainer(),
+                    AddSymtomsContainer(),
+                  ]
                   ),
-            ),
+                 ),
+            ],
           ),
-        ),
+        )
     );
   }
 }
