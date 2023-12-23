@@ -4,7 +4,9 @@ import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/screens/home_screen/widget/add_symtoms_container.dart';
 import 'package:i_beat/screens/home_screen/widget/diary_event_container.dart';
+import 'package:i_beat/screens/home_screen/widget/diary_event_list_screen.dart';
 import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
+import 'package:i_beat/screens/home_screen/widget/patient_dashboard_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -43,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         ),
       ),
       drawer:const Drawer(
-        backgroundColor: AppColors.white,
+        backgroundColor: Colors.white,
         child: DrawerScreen(),
         ),
         body: Padding(
@@ -55,22 +57,21 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: AppColors.wBlue,
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(25),
                     ),
-                    
                     child: TabBar(
                       indicator: BoxDecoration(
                               color: AppColors.blue,
-                              borderRadius: BorderRadius.circular(30)
+                              borderRadius: BorderRadius.circular(25)
                         ),
                         controller: tabController,
                         isScrollable: true,
+                        labelColor: AppColors.white,
+                        unselectedLabelColor: AppColors.textBlack,
                         //labelPadding: EdgeInsets.symmetric(horizontal: 20),
                         tabs: [
-                          Expanded(
-                            child: Container(
-                              child: Tab(
-                                child: Text("Patient\nDashboard",
+                          Tab(
+                            child: Text("Patient\nDashboard",
                                     textAlign: TextAlign.center,
                                            style: primaryFont.copyWith(
                                               fontSize: 14,
@@ -78,36 +79,26 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                               color: AppColors.textBlack
                                       ),
                                   ),
-                              ),
-                            ),
                           ),
-                            Expanded(
-                              child: Container(
-                                child: Tab(
-                                  child: Text("Add\nSymptoms",
-                                    textAlign: TextAlign.center,
-                                           style: primaryFont.copyWith(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                              color: AppColors.textBlack
-                                      ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                child: Tab(
-                                  child: Text("Diary\nEvents",
-                                    textAlign: TextAlign.center,
-                                           style: primaryFont.copyWith(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                              color: AppColors.textBlack
-                                      ),
-                                  ),
-                                ),
-                              ),
+                           Tab(
+                             child: Text("Add\nSymptoms",
+                                      textAlign: TextAlign.center,
+                                             style: primaryFont.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.textBlack
+                                        ),
+                                    ),
+                           ),
+                            Tab(
+                              child: Text("Diary\nEvents",
+                                      textAlign: TextAlign.center,
+                                             style: primaryFont.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.textBlack
+                                        ),
+                                    ),
                             ),
                         ],
                     ),
@@ -116,10 +107,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               Expanded(
                 child: TabBarView(
                   controller: tabController,
-                  children: [
+                  children:const [
+                    PatientDashboardContainer(),
                     AddSymtomsContainer(),
-                    DiaryEventContainer(),
-                    AddSymtomsContainer(),
+                    DiaryEventListScreen(),
                   ]
                   ),
                  ),
