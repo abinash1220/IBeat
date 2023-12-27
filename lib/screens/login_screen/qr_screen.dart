@@ -3,8 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
+import 'package:i_beat/constants/cap.dart';
+import 'package:i_beat/screens/login_screen/qr_manual_screen.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QRViewExample extends StatefulWidget {
@@ -36,97 +39,95 @@ class _QRViewExampleState extends State<QRViewExample> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Image(image: AssetImage("assets/icons/remove.png",),height: 24,color: AppColors.white,),
+            //Image(image: AssetImage("assets/icons/remove.png",),height: 24,color: AppColors.white,),
             Expanded(flex: 8, child: _buildQrView(context)),
+            Gap(height: 10,),
             Text("Scan QR Code ",
                       style: primaryFont.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                         color: AppColors.textBlack
                       ),
-                    ),
-            Expanded(
-              flex: 1,
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    if (result != null)
-                      Text(
-                          'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-                    else
-                      const Text('Scan a code'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          margin: const EdgeInsets.all(8),
-                          child: ElevatedButton(
-                              onPressed: () async {
-                                await controller?.toggleFlash();
-                                setState(() {});
-                              },
-                              child: FutureBuilder(
-                                future: controller?.getFlashStatus(),
-                                builder: (context, snapshot) {
-                                  return Icon(Icons.flash_on);
-                                  // return Text('Flash: ${snapshot.data}');
-                                },
-                              )),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.all(8),
-                          child: ElevatedButton(
-                              onPressed: () async {
-                                await controller?.flipCamera();
-                                setState(() {});
-                              },
-                              child: FutureBuilder(
-                                future: controller?.getCameraInfo(),
-                                builder: (context, snapshot) {
-                                  if (snapshot.data != null) {
-                                    return Text(
-                                        'Camera facing ${describeEnum(snapshot.data!)}');
-                                  } else {
-                                    return const Text('loading');
-                                  }
-                                },
-                              )),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          margin: const EdgeInsets.all(8),
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              await controller?.pauseCamera();
-                            },
-                            child: const Text('pause',
-                                style: TextStyle(fontSize: 20)),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.all(8),
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              await controller?.resumeCamera();
-                            },
-                            child: const Text('resume',
-                                style: TextStyle(fontSize: 20)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
               ),
-            )
+              Gap(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  onTap: () async{
+                     await controller?.toggleFlash();
+                     setState(() {});
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow:const [
+                        BoxShadow(
+                          color: AppColors.textGrey,
+                          blurRadius: 2.5,
+                        )
+                      ]
+                    ),
+                    child:const Center(
+                      child: Image(image: 
+                      AssetImage("assets/icons/flash.png"),
+                      height: 24,)),
+                  ),
+                ),
+                Gap(width: 30,),
+                 InkWell(
+                   onTap: (){
+                    Get.to(const QrManualScreen());
+                  },
+                   child: Container(
+                    height: 45,
+                    width: 170,
+                    decoration: BoxDecoration(
+                      color: AppColors.blue,
+                      borderRadius: BorderRadius.circular(10),
+                      
+                    ),
+                    child: Center(
+                      child: Text("Enter manually",
+                                         style: primaryFont.copyWith(
+                                           fontSize: 16,
+                                           fontWeight: FontWeight.w500,
+                                           color: AppColors.white
+                                         ),
+                                       ),
+                      ),
+                                           ),
+                 ),
+                 Gap(width: 30,),
+                 InkWell(
+                  onTap: (){
+                        
+                  },
+                   child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow:const [
+                        BoxShadow(
+                          color: AppColors.textGrey,
+                          blurRadius: 2.5,
+                        )
+                      ]
+                    ),
+                    child:const Center(
+                      child: Image(image: 
+                      AssetImage("assets/icons/img.png"),
+                      height: 20,)),
+                                           ),
+                 ),
+              ],
+            ),
+            Gap(height: 10,),
           ],
         ),
       ),

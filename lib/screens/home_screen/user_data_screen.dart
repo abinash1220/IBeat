@@ -45,105 +45,162 @@ class _UserDataScreenState extends State<UserDataScreen> {
                    ),
               ),
               Gap(height: 15,),
-              DiaryEventContainer(),
-            //   Container(
-            //     height: 140,
-            //     width: double.infinity,
-            //     decoration: BoxDecoration(
-            //         border: Border.all(color: AppColors.blue),
-            //         color: AppColors.white,
-            //         borderRadius: BorderRadius.circular(10)
-            //   ),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Container(
-            //             height: 140,
-            //             width: 8,
-            //             decoration:const BoxDecoration(
-            //               color: AppColors.blue,
-            //               borderRadius: BorderRadius.only(topLeft: Radius.circular(10),bottomLeft: Radius.circular(10))
-            //           ),
-            //        ),
-            //        Padding(
-            //          padding: const EdgeInsets.all(8.0),
-            //          child: Column(
-            //           children: [
-            //             Row(
-            //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //               children: [
-            //                 Column(
-            //                   crossAxisAlignment: CrossAxisAlignment.start,
-            //                   children: [
-            //                   Text("Name",
-            //                      style: primaryFont.copyWith(
-            //                      fontSize: 12,
-            //                      fontWeight: FontWeight.w400,
-            //                      color: AppColors.textGrey
-            //                     ),
-            //                    ),
-            //                    Text("Micheal Kores",
-            //                      style: primaryFont.copyWith(
-            //                      fontSize: 14,
-            //                      fontWeight: FontWeight.w600,
-            //                      color: AppColors.textBlack
-            //                     ),
-            //                    ),
-            //                   ],
-            //                 ),
-            //                 Row(
-            //               children: [
-            //                 Column(
-            //                   crossAxisAlignment: CrossAxisAlignment.start,
-            //                   children: [
-            //                   Text("Age",
-            //                      style: primaryFont.copyWith(
-            //                      fontSize: 12,
-            //                      fontWeight: FontWeight.w400,
-            //                      color: AppColors.textGrey
-            //                     ),
-            //                    ),
-            //                    Text("23",
-            //                      style: primaryFont.copyWith(
-            //                      fontSize: 14,
-            //                      fontWeight: FontWeight.w600,
-            //                      color: AppColors.textBlack
-            //                     ),
-            //                    ),
-            //                   ],
-            //                 ),
-            //                 Gap(width: 15,),
-            //                 Column(
-            //                   crossAxisAlignment: CrossAxisAlignment.start,
-            //                   children: [
-            //                   Text("Gender",
-            //                      style: primaryFont.copyWith(
-            //                      fontSize: 12,
-            //                      fontWeight: FontWeight.w400,
-            //                      color: AppColors.textGrey
-            //                     ),
-            //                    ),
-            //                    Text("Male",
-            //                      style: primaryFont.copyWith(
-            //                      fontSize: 14,
-            //                      fontWeight: FontWeight.w600,
-            //                      color: AppColors.textBlack
-            //                     ),
-            //                    ),
-            //                   ],
-            //                 ),
-            //               ],
-            //             ),
-            //               ],
-            //             ),
+             // DiaryEventContainer(),
+              Container(
+                height: 140,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.blue),
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10)
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                        height: 140,
+                        width: 8,
+                        decoration:const BoxDecoration(
+                          color: AppColors.blue,
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10),bottomLeft: Radius.circular(10))
+                      ),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                              Text("Name",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 12,
+                                 fontWeight: FontWeight.w400,
+                                 color: AppColors.textGrey
+                                ),
+                               ),
+                               Text("Micheal Kores",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 14,
+                                 fontWeight: FontWeight.w600,
+                                 color: AppColors.textBlack
+                                ),
+                               ),
+                              ],
+                            ),
+                            Gap(width: 30,),
+                            Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                              Text("Age",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 12,
+                                 fontWeight: FontWeight.w400,
+                                 color: AppColors.textGrey
+                                ),
+                               ),
+                               Text("23",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 14,
+                                 fontWeight: FontWeight.w600,
+                                 color: AppColors.textBlack
+                                ),
+                               ),
+                              ],
+                            ),
+                            Gap(width: 15,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                              Text("Gender",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 12,
+                                 fontWeight: FontWeight.w400,
+                                 color: AppColors.textGrey
+                                ),
+                               ),
+                               Text("Male",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 14,
+                                 fontWeight: FontWeight.w600,
+                                 color: AppColors.textBlack
+                                ),
+                               ),
+                              ],
+                            ),
+                          ],
+                        ),
+                          ],
+                        ),
                         
-            //           ],
-            //          ),
-            //        ),
-            //     ],
-            //   ),
-            // ),
-                
+                      ],
+                     ),
+                   ),
+                ],
+              ),
+            ),
+            //instruction
+            Gap(height: 20,),
+            Container(
+                //height: 140,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow:const [
+                      BoxShadow(
+                        blurRadius: 1.5,
+                        color: AppColors.textGrey
+                      ),
+                    ]
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 25,
+                          width: 10,
+                          decoration:const BoxDecoration(
+                            color: AppColors.lBlue,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(2),
+                              bottomLeft: Radius.circular(2)
+                            ),
+                          ),
+                        ),
+                        Gap(width: 10,),
+                         Text("Instruction",
+                                 style: primaryFont.copyWith(
+                                 fontSize: 20,
+                                 fontWeight: FontWeight.w600,
+                                 color: AppColors.textBlack
+                                ),
+                               ),
+                      ],
+                    ),
+                     Padding(
+                       padding: const EdgeInsets.only(left: 20,top: 10),
+                       child: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+                                   style: primaryFont.copyWith(
+                                   fontSize: 14,
+                                   fontWeight: FontWeight.w400,
+                                   color: AppColors.textBlack
+                                  ),
+                                 ),
+                     ),
+                  ],
+                ),
+              ),
+            ),  
           ],
         ),
       ),

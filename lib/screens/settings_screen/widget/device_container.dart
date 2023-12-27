@@ -135,24 +135,13 @@ class _DevicveContainerState extends State<DevicveContainer> {
                       ),
                     ),
                     Switch(
-                      value: isSwitched, 
-                      onChanged: (bool){
-                         if(isSwitched == false)  
-    {  
-      setState(() {  
-        isSwitched = true;  
-      });  
-      print('Switch Button is ON');  
-    }  
-    else  
-    {  
-      setState(() {  
-        isSwitched = false;  
-      });  
-      print('Switch Button is OFF');  
-    }  
-                      }
-                      ),
+            value: isSwitched,
+            onChanged: (value) {
+              setState(() {
+                isSwitched = value;
+              });
+            },
+          ),
                       ],
              ),
           ],
