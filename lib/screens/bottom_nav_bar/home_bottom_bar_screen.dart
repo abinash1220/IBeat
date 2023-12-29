@@ -49,8 +49,8 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       body: screens[_selectedItemPosition],
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedItemPosition,
-        backgroundColor: Colors.white,
-        color: AppColors.wBlue,
+        backgroundColor:const Color.fromARGB(255, 245, 245, 245),
+        color: AppColors.white,
         buttonBackgroundColor: AppColors.blue,
         items: icons,
         onTap: (index) => setState(() => _selectedItemPosition = index),

@@ -20,16 +20,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+                //    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      InkWell(
-                        onTap: (){
-                          Get.back();
-                        },
-                        child: const Image(image: AssetImage("assets/icons/back.png"),
-                          height: 20,width: 10,),
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              Get.back();
+                            },
+                            child: const Image(image: AssetImage("assets/icons/back.png"),
+                              height: 20,width: 10,),
+                          ),
+                        ],
                       ),
                         Gap(height: 20,),
                       const Center(
@@ -61,29 +65,26 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),),
                      Gap(height: 10,),
                      Container(
-                        height: 48,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.textGrey),
-                            borderRadius: BorderRadius.circular(5)
-                            ),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: TextField(
-                            //controller: usernamecontroller,
-                            decoration: InputDecoration(
-                                isCollapsed: true,
-                                isDense: true,
-                                border: InputBorder.none,
-                                hintText: "Enter Your Mail",
-                                hintStyle: primaryFont.copyWith(
-                                  color: AppColors.textGrey,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ),
-                        ),
-                     ),
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Enter Your Mail",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                      Gap(height: 40,),
                     InkWell(
                        onTap: (){

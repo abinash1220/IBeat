@@ -4,6 +4,7 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/hooks/next_button.dart';
+import 'package:i_beat/screens/bottom_nav_bar/home_bottom_bar_screen.dart';
 import 'package:i_beat/screens/forgot_password/forgot_password_screen.dart';
 import 'package:i_beat/screens/login_screen/qr_manual_screen.dart';
 import 'package:i_beat/screens/login_screen/qr_screen.dart';
@@ -17,6 +18,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  bool passToggle = true;
+
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,28 +106,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),),
               const SizedBox(height: 10,),
               Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.textGrey),
-                          borderRadius: BorderRadius.circular(5)
-                          ),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 10),
-                        child: TextField(
-                          //controller: usernamecontroller,
-                          decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                              border: InputBorder.none,
-                              hintText: "Machile Jachson",
-                              hintStyle: primaryFont.copyWith(
-                                color: AppColors.textBlack,
-                                fontWeight: FontWeight.w400,
-                              )),
-                        ),
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.name,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "MS04321",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
                       ),
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 20,),
               Text("Password",
@@ -132,29 +135,33 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),),
                   const SizedBox(height: 10,),
               Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.textGrey),
-                          borderRadius: BorderRadius.circular(5)
-                          ),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: TextField(
-                          //controller: usernamecontroller,
-                          decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                               suffixIcon:const Icon(Icons.remove_red_eye),
-                              border: InputBorder.none,
-                              hintText: "Password",
-                              hintStyle: primaryFont.copyWith(
-                                color: AppColors.textBlack,
-                                fontWeight: FontWeight.w400,
-                              )),
-                        ),
+                height: 50,
+                child: TextFormField(
+                  obscureText: passToggle,
+                   keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Password",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
                       ),
+                    ),
+                    suffixIcon: InkWell(
+                      onTap: (){
+                        setState(() {
+                          passToggle = !passToggle;
+                        });
+                      },
+                      child:Icon(passToggle ? Icons.visibility : Icons.visibility_off))
+                  ),
+                ),
               ),
               const SizedBox(height: 20,),
               Center(
@@ -232,27 +239,46 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),),
                 ),
                  Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
-                  child: Text("By proceeding you agree to iBeat privacy policy, user agreement and T&C",
-                     style: primaryFont.copyWith(
-                     fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.textGrey
-                  ),),
+                  padding: const EdgeInsets.only(left: 5,right: 20,top: 10,bottom: 10),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        checkColor: Colors.white,
+                       // fillColor:  Color.fromARGB(255, 5, 101, 180),
+                        value: isChecked,
+                        onChanged: (bool? value) {
+                           setState(() {
+                              isChecked = value!;
+                              });
+                            },
+                       ),
+                      Text("By proceeding you agree to iBeat\nprivacy policy, user agreement\nand T&C",
+                         style: primaryFont.copyWith(
+                         fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.textGrey
+                      ),),
+                    ],
+                  ),
                 ),
                 Divider(color: Colors.grey[300],),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      width: 90,
-                      child: Center(
-                        child: Text("Cancel",
-                          style: primaryFont.copyWith(
-                             fontSize: 17,
-                             fontWeight: FontWeight.w400,
-                              color: AppColors.red
-                         ),),
+                    InkWell(
+                      onTap: (){
+                        Get.back();
+                      },
+                      child: Container(
+                        width: 90,
+                        child: Center(
+                          child: Text("Cancel",
+                            style: primaryFont.copyWith(
+                               fontSize: 17,
+                               fontWeight: FontWeight.w400,
+                                color: AppColors.red
+                           ),),
+                        ),
                       ),
                     ),
                     Container(
@@ -260,14 +286,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 1,
                       color: Colors.grey[300],
                     ),
-                    Container(
-                      width: 90,
-                      child: Text("Continue",
-                        style: primaryFont.copyWith(
-                           fontSize: 17,
-                           fontWeight: FontWeight.w400,
-                            color: AppColors.blue
-                       ),),
+                    InkWell(
+                      onTap: (){
+                        Get.to(HomeBottomBar());
+                      },
+                      child: Container(
+                        width: 90,
+                        child: Text("Continue",
+                          style: primaryFont.copyWith(
+                             fontSize: 17,
+                             fontWeight: FontWeight.w400,
+                              color: AppColors.blue
+                         ),),
+                      ),
                     ),
                   ],
                 ),

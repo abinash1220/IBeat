@@ -20,7 +20,7 @@ class _DevicveContainerState extends State<DevicveContainer> {
       height: 185,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.lightBlue,
+        color: AppColors.lBlue,
         borderRadius: BorderRadius.circular(10)
       ),
       child: Padding(

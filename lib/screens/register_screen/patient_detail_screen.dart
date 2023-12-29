@@ -21,16 +21,20 @@ class _PatientDetailScreenState extends State<PatientDetailScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+              //  mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  InkWell(
-                    onTap: (){
-                      Get.back();
-                    },
-                    child: const Image(image: AssetImage("assets/icons/back.png"),
-                      height: 20,width: 10,),
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          Get.back();
+                        },
+                        child: const Image(image: AssetImage("assets/icons/back.png"),
+                          height: 20,width: 10,),
+                      ),
+                    ],
                   ),
                     Gap(height: 20,),
                   const Center(
@@ -57,30 +61,27 @@ class _PatientDetailScreenState extends State<PatientDetailScreen> {
                       color: AppColors.textBlack
                     ),),
                     Gap(height: 10,),
-                    Container(
-                        height: 48,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.textGrey),
-                            borderRadius: BorderRadius.circular(5)
-                            ),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 10),
-                          child: TextField(
-                            //controller: usernamecontroller,
-                            decoration: InputDecoration(
-                                isCollapsed: true,
-                                isDense: true,
-                                border: InputBorder.none,
-                                hintText: "Enter Patient Name",
-                                hintStyle: primaryFont.copyWith(
-                                  color: AppColors.textGrey,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ),
-                        ),
-                                ),
+                     Container(
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.name,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Enter Patient Name",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                                 Gap(height: 20,),
                                 Text("Gender",
                     style: primaryFont.copyWith(
@@ -88,31 +89,28 @@ class _PatientDetailScreenState extends State<PatientDetailScreen> {
                       fontWeight: FontWeight.w400,
                       color: AppColors.textBlack
                     ),),
-                                   Gap(height: 10,),
-                                   Container(
-                        height: 48,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.textGrey),
-                            borderRadius: BorderRadius.circular(5)
-                            ),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: TextField(
-                            //controller: usernamecontroller,
-                            decoration: InputDecoration(
-                                isCollapsed: true,
-                                isDense: true,
-                                border: InputBorder.none,
-                                hintText: "Select Gender",
-                                hintStyle: primaryFont.copyWith(
-                                  color: AppColors.textGrey,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ),
-                        ),
-                                ),
+                    Gap(height: 10,),
+                     Container(
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Select Gender",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                                 Gap(height: 20,),
                                 Text("Date of birth",
                     style: primaryFont.copyWith(
@@ -120,95 +118,86 @@ class _PatientDetailScreenState extends State<PatientDetailScreen> {
                       fontWeight: FontWeight.w400,
                       color: AppColors.textBlack
                     ),),
-                                   Gap(height: 10,),
-                                   Container(
-                        height: 48,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.textGrey),
-                            borderRadius: BorderRadius.circular(5)
-                            ),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: TextField(
-                            //controller: usernamecontroller,
-                            decoration: InputDecoration(
-                                isCollapsed: true,
-                                isDense: true,
-                                border: InputBorder.none,
-                                hintText: "DD/MM/YY",
-                                hintStyle: primaryFont.copyWith(
-                                  color: AppColors.textGrey,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ),
-                        ),
-                                ),
-                                Gap(height: 20,),
-                                Text("Email",
+                 Gap(height: 10,),
+                 Container(
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.datetime,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "DD/MM/YY",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+                Gap(height: 20,),
+                 Text("Email",
                     style: primaryFont.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                       color: AppColors.textBlack
                     ),),
-                                   Gap(height: 10,),
-                                   Container(
-                        height: 48,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.textGrey),
-                            borderRadius: BorderRadius.circular(5)
-                            ),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: TextField(
-                            //controller: usernamecontroller,
-                            decoration: InputDecoration(
-                                isCollapsed: true,
-                                isDense: true,
-                                border: InputBorder.none,
-                                hintText: "Enter Your Mail",
-                                hintStyle: primaryFont.copyWith(
-                                  color: AppColors.textGrey,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ),
-                        ),
-                                ),
-                                Gap(height: 20,),
-                                Text("Phone number",
+                   Gap(height: 10,),
+                    Container(
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Enter Your Mail",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+                 Gap(height: 20,),
+                  Text("Phone number",
                     style: primaryFont.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                       color: AppColors.textBlack
                     ),),
-                                   Gap(height: 10,),
-                                   Container(
-                        height: 48,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.textGrey),
-                            borderRadius: BorderRadius.circular(5)
-                            ),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: TextField(
-                            //controller: usernamecontroller,
-                            decoration: InputDecoration(
-                                isCollapsed: true,
-                                isDense: true,
-                                border: InputBorder.none,
-                                hintText: "Enter Your Numer",
-                                hintStyle: primaryFont.copyWith(
-                                  color: AppColors.textGrey,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ),
-                        ),
-                     ),
+                    Gap(height: 10,),
+                     Container(
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.phone,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Enter Your Number",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                                    ],
                                 ),
                   ),

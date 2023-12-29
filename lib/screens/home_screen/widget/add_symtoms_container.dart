@@ -15,34 +15,35 @@ class AddSymtomsContainer extends StatefulWidget {
 class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Select from the list (or) add reasons",
-          style: primaryFont.copyWith(
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            color: AppColors.textBlack
-           ),
-        ),
-        Gap(height: 15,),
-                
-        Container(
-          height: 260,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.lightBlue,
-            borderRadius: BorderRadius.circular(10)
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20,left: 15,right: 15),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Select from the list (or) add reasons",
+            style: primaryFont.copyWith(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: AppColors.textBlack
+             ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  FadeInLeft(
-                    child: Row(
+          Gap(height: 15,),
+          Container(
+            height: 260,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: AppColors.lightBlue,
+              borderRadius: BorderRadius.circular(10)
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Row(
                     children: [
                       Text("Dizziness",
                       textAlign: TextAlign.end,
@@ -68,9 +69,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                                     ),
-                  ),
-                 FadeInLeft(
-                   child: Row(
+                   Row(
                     children: [
                       Text("Shortness\nof Breath",
                       textAlign: TextAlign.end,
@@ -96,9 +95,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                                    ),
-                 ),
-                 FadeInLeft(
-                   child: Row(
+                   Row(
                     children: [
                       Text("Body Pain",
                       textAlign: TextAlign.end,
@@ -124,9 +121,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                                    ),
-                 ),
-                 FadeInLeft(
-                   child: Row(
+                   Row(
                     children: [
                       Text("Chest\nDiscomfort",
                       textAlign: TextAlign.end,
@@ -152,9 +147,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                                    ),
-                 ),
-                 FadeInLeft(
-                   child: Row(
+                   Row(
                     children: [
                       Text("Profuse\nSweating",
                       textAlign: TextAlign.end,
@@ -180,16 +173,14 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                                    ),
-                 ),
-                ],
-              ),
-              FadeInUp(child: const Image(image: AssetImage("assets/images/man.png"),height: 240,)),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                       FadeInRight(
-                         child: Row(
+                  ],
+                ),
+                const Image(image: AssetImage("assets/images/man.png"),height: 240,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                         Row(
                                            children: [
                                              Container(
                                                height: 30,
@@ -214,9 +205,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                                              ),
                                            ],
                                          ),
-                       ),
-                FadeInRight(
-                  child: Row(
+                  Row(
                     children: [
                       Container(
                         height: 30,
@@ -241,9 +230,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                   ),
-                ),
-                FadeInRight(
-                  child: Row(
+                  Row(
                     children: [
                       Container(
                         height: 30,
@@ -268,9 +255,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                   ),
-                ),
-                FadeInRight(
-                  child: Row(
+                  Row(
                     children: [
                       Container(
                         height: 30,
@@ -295,9 +280,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                   ),
-                ),
-                FadeInRight(
-                  child: Row(
+                  Row(
                     children: [
                       Container(
                         height: 30,
@@ -322,40 +305,40 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                       ),
                     ],
                   ),
-                ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
-        ),
-         Gap(height: 30,),
-                Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.textGrey),
-                          borderRadius: BorderRadius.circular(5)
+           Gap(height: 30,),
+                  Container(
+                        height: 48,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.textGrey),
+                            borderRadius: BorderRadius.circular(5)
+                            ),
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 10),
+                          child: TextField(
+                            //controller: usernamecontroller,
+                            decoration: InputDecoration(
+                                isCollapsed: true,
+                                isDense: true,
+                                border: InputBorder.none,
+                                hintText: "Other Reasons",
+                                hintStyle: primaryFont.copyWith(
+                                  color: AppColors.textBlack,
+                                  fontWeight: FontWeight.w400,
+                                )),
                           ),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 10),
-                        child: TextField(
-                          //controller: usernamecontroller,
-                          decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                              border: InputBorder.none,
-                              hintText: "Other Reasons",
-                              hintStyle: primaryFont.copyWith(
-                                color: AppColors.textBlack,
-                                fontWeight: FontWeight.w400,
-                              )),
                         ),
-                      ),
-              ),
-              Gap(height: 15,),
-              NextButton(text: "Submit"),
-      ],
+                ),
+                Gap(height: 15,),
+                NextButton(text: "Submit"),
+        ],
+      ),
     );
   }
 }

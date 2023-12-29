@@ -23,16 +23,20 @@ class _RegisterOtpScreenState extends State<RegisterOtpScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+              //      mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      InkWell(
-                        onTap: (){
-                          Get.back();
-                        },
-                        child: const Image(image: AssetImage("assets/icons/back.png"),
-                          height: 20,width: 10,),
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              Get.back();
+                            },
+                            child: const Image(image: AssetImage("assets/icons/back.png"),
+                              height: 20,width: 10,),
+                          ),
+                        ],
                       ),
                         Gap(height: 20,),
                       const Center(

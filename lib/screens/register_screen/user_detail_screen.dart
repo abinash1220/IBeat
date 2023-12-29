@@ -14,22 +14,30 @@ class UserDetailScreen extends StatefulWidget {
 }
 
 class _UserDetailScreenState extends State<UserDetailScreen> {
+
+  bool passToggle = true;
+  bool cpassToggle = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+           // crossAxisAlignment: CrossAxisAlignment.start,
+             //   mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  InkWell(
-                    onTap: (){
-                      Get.back();
-                    },
-                    child: const Image(image: AssetImage("assets/icons/back.png"),
-                      height: 20,width: 10,),
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          Get.back();
+                        },
+                        child: const Image(image: AssetImage("assets/icons/back.png"),
+                          height: 20,width: 10,),
+                      ),
+                    ],
                   ),
                     Gap(height: 20,),
                   const Center(
@@ -52,29 +60,26 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                     color: AppColors.textBlack
                   ),),
                   Gap(height: 10,),
-                  Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.textGrey),
-                          borderRadius: BorderRadius.circular(5)
-                          ),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 10),
-                        child: TextField(
-                          //controller: usernamecontroller,
-                          decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                              border: InputBorder.none,
-                              hintText: "Machile Jachson",
-                              hintStyle: primaryFont.copyWith(
-                                color: AppColors.textBlack,
-                                fontWeight: FontWeight.w400,
-                              )),
-                        ),
+                   Container(
+                height: 50,
+                child: TextFormField(
+                  keyboardType: TextInputType.name,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Machile Jachson",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
                       ),
+                    ),
+                  ),
+                ),
               ),
               Gap(height: 20,),
               Text("Password",
@@ -84,30 +89,34 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                     color: AppColors.textBlack
                   ),),
                  Gap(height: 10,),
-                 Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.textGrey),
-                          borderRadius: BorderRadius.circular(5)
-                          ),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: TextField(
-                          //controller: usernamecontroller,
-                          decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                               suffixIcon:const Icon(Icons.remove_red_eye),
-                              border: InputBorder.none,
-                              hintText: "Password",
-                              hintStyle: primaryFont.copyWith(
-                                color: AppColors.textBlack,
-                                fontWeight: FontWeight.w400,
-                              )),
-                        ),
+                  Container(
+                height: 50,
+                child: TextFormField(
+                  obscureText: passToggle,
+                   keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Password",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
                       ),
+                    ),
+                    suffixIcon: InkWell(
+                      onTap: (){
+                        setState(() {
+                          passToggle = !passToggle;
+                        });
+                      },
+                      child:Icon(passToggle ? Icons.visibility : Icons.visibility_off))
+                  ),
+                ),
               ),
               Gap(height: 20,),
               Text("Confirm Password",
@@ -117,30 +126,34 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                     color: AppColors.textBlack
                   ),),
                  Gap(height: 10,),
-                 Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.textGrey),
-                          borderRadius: BorderRadius.circular(5)
-                          ),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: TextField(
-                          //controller: usernamecontroller,
-                          decoration: InputDecoration(
-                              isCollapsed: true,
-                              isDense: true,
-                               suffixIcon:const Icon(Icons.remove_red_eye),
-                              border: InputBorder.none,
-                              hintText: "Password",
-                              hintStyle: primaryFont.copyWith(
-                                color: AppColors.textBlack,
-                                fontWeight: FontWeight.w400,
-                              )),
-                        ),
+                  Container(
+                height: 50,
+                child: TextFormField(
+                  obscureText: cpassToggle,
+                   keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Password",
+                    hintStyle: primaryFont.copyWith(
+                        color: AppColors.textBlack,
+                        fontWeight: FontWeight.w400,
+                    ),
+                    border:const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderSide: BorderSide(
+                      color: AppColors.textGrey,
                       ),
+                    ),
+                    suffixIcon: InkWell(
+                      onTap: (){
+                        setState(() {
+                          cpassToggle = !cpassToggle;
+                        });
+                      },
+                      child:Icon(cpassToggle ? Icons.visibility : Icons.visibility_off))
+                  ),
+                ),
               ),
               Gap(height: 40,),
               InkWell(

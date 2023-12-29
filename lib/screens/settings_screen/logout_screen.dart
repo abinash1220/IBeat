@@ -1,23 +1,121 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/controllers/settings_controller.dart';
+import 'package:i_beat/screens/bottom_nav_bar/settings_bottom_bar_screen.dart';
 import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
+import 'package:i_beat/screens/login_screen/login_screen.dart';
 import 'package:i_beat/screens/settings_screen/widget/privacy_container.dart';
 import 'package:i_beat/screens/settings_screen/widget/terms_of_service_container.dart';
 
-class PrivacyPolicyTandCScreen extends StatefulWidget {
-  const PrivacyPolicyTandCScreen({super.key});
+class LogoutScreen extends StatefulWidget {
+  const LogoutScreen({super.key});
 
   @override
-  State<PrivacyPolicyTandCScreen> createState() => _PrivacyPolicyTandCScreenState();
+  State<LogoutScreen> createState() => _LogoutScreenState();
 }
 
-class _PrivacyPolicyTandCScreenState extends State<PrivacyPolicyTandCScreen> {
+class _LogoutScreenState extends State<LogoutScreen> {
 
   final settingsController = Get.find<SettingsController>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    logout();
+  }
+
+  logout() async {
+    await Future.delayed(Duration.zero,(){
+      showDialog(
+      barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(20.0)), //this right here
+            child: Container(
+              height: 135,
+              decoration: BoxDecoration(
+                color:AppColors.white,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Gap(height: 10,),
+                  Text("Logout",
+                   style: primaryFont.copyWith(
+                   fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textBlack
+                ),),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
+                  child: Text("Are you sure you want to logout?",
+                     style: primaryFont.copyWith(
+                     fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.textGrey
+                  ),),
+                ),
+                Divider(color: Colors.grey[300],),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      onTap: (){
+                        Get.back();
+                      },
+                      child: Container(
+                        width: 90,
+                        child: Center(
+                          child: Text("Cancel",
+                            style: primaryFont.copyWith(
+                               fontSize: 17,
+                               fontWeight: FontWeight.w400,
+                                color: AppColors.red
+                           ),),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 30,
+                      width: 1,
+                      color: Colors.grey[300],
+                    ),
+                    InkWell(
+                      onTap: (){
+                        Get.offAll(const LoginScreen());
+                      },
+                      child: Container(
+                        width: 90,
+                        child: Text("Logout",
+                          style: primaryFont.copyWith(
+                             fontSize: 16,
+                             fontWeight: FontWeight.w500,
+                              color: AppColors.blue
+                         ),),
+                      ),
+                    ),
+                  ],
+                ),
+                ],
+              ),
+            ),
+          );
+        });
+      });
+   
+
+  }
 
   @override
   Widget build(BuildContext context) {

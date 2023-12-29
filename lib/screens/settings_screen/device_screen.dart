@@ -34,21 +34,32 @@ class _DeviceScreenState extends State<DeviceScreen> {
         backgroundColor: AppColors.white,
         child: DrawerScreen(),
         ),
-        body: Padding(
-          padding:const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-               Text("Available devices",
-                  style: primaryFont.copyWith(
-                   fontSize: 20,
-                   fontWeight: FontWeight.w600,
-                   color: AppColors.textBlack
-                 ),
-              ),
-              Gap(height: 20,),
-              DevicveContainer(),
-            ],
+        body: Container(
+          decoration:const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+          AppColors.white,
+          Color.fromARGB(255, 245, 245, 245),
+        ])
+      ),
+          child: Padding(
+            padding:const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 Text("Available devices",
+                    style: primaryFont.copyWith(
+                     fontSize: 20,
+                     fontWeight: FontWeight.w600,
+                     color: AppColors.textBlack
+                   ),
+                ),
+                Gap(height: 20,),
+                const DevicveContainer(),
+              ],
+            ),
           ),
         ),
     );
