@@ -28,10 +28,10 @@ class _ActivityScreenState extends State<ActivityScreen> {
                                   ActivityModel(title: "Excercise",image: "assets/icons/exe.png"),
                                   ActivityModel(title: "Steps",image: "assets/icons/step.png"),
                                   ActivityModel(title: "Walking",image: "assets/icons/walk.png"),
-                                  ActivityModel(title: "Running",image: "assets/icons/run.png"),
-                                  ActivityModel(title: "Excercise",image: "assets/icons/exe.png"),
-                                  ActivityModel(title: "Steps",image: "assets/icons/step.png"),
-                                  ActivityModel(title: "Walking",image: "assets/icons/walk.png")];
+                                  ActivityModel(title: "Exercise\nBike",image: "assets/icons/exebike.png"),
+                                  ActivityModel(title: "Weight\nTraining",image: "assets/icons/training.png"),
+                                  ActivityModel(title: "Stretching",image: "assets/icons/stretching.png"),
+                                  ActivityModel(title: "Sports",image: "assets/icons/sports.png")];
   List<String> selectedItems = [];
 
   bool diaryEvent = false;
@@ -92,10 +92,15 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   ),
                   
                   Container(
-                    height: 200,
+                    height: 250,
                     child: GridView.builder(
                       itemCount: actvity.length,
-                      gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,),
+                      gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 0,
+                        childAspectRatio: 0.8
+
+                        ),
                       itemBuilder: (BuildContext context, int index) {
                         ActivityModel item = actvity[index];
                         return Column(
