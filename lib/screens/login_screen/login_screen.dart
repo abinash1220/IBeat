@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
@@ -25,7 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -215,12 +215,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.circular(20.0)),
-                child: Container(
-                 height: 460,
-                  decoration: BoxDecoration(
-                    color:AppColors.white,
-                    borderRadius: BorderRadius.circular(10)
-                  ),
+                child: IntrinsicHeight(
+                  // decoration: BoxDecoration(
+                  //   color:AppColors.white,
+                  //   borderRadius: BorderRadius.circular(10)
+                  // ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

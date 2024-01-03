@@ -47,6 +47,7 @@ dependencies:
   flutter_blue_plus: ^1.29.12
   gradient_line_graph: ^1.0.0
   hex: ^0.2.0
+  flutter_screenutil: ^5.9.0
 
 dev_dependencies:
   flutter_test:

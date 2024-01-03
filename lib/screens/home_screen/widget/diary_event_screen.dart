@@ -27,25 +27,26 @@ class _DiaryEventScreenState extends State<DiaryEventScreen> {
             if(diaryEvent == true)
             const DiaryEventContainer(),
             
-            if(diaryEvent == false)
+            // if(diaryEvent == false)
             
-             Padding(
-               padding: const EdgeInsets.only(left: 15,right: 15),
-               child: InkWell(
-                onTap: (){
-                  setState(() {
-                    diaryEvent = true;
-                  });
-                },
-                child: NextButton(text: "Add new diary")),
-             ),
-             if(diaryEvent == true)
+            //  Padding(
+            //    padding: const EdgeInsets.only(left: 15,right: 15),
+            //    child: InkWell(
+            //     onTap: (){
+            //       setState(() {
+            //         diaryEvent = true;
+            //       });
+            //     },
+            //     child: NextButton(text: "Add new diary")),
+            //  ),
+            //  if(diaryEvent == true)
+            
              Padding(
                padding: const EdgeInsets.only(left: 15,right: 15,top: 5),
                child: InkWell(
                 onTap: (){
                   setState(() {
-                    diaryEvent = false;
+                    diaryEvent = !diaryEvent;
                   });
                 },
                 child: NextButton(text: "Submit")),
