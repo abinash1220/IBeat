@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
+import 'package:i_beat/controllers/ecg_screen_controller.dart';
+import 'package:i_beat/hooks/ecg_graph.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class PatientDashboardContainer extends StatefulWidget {
@@ -22,28 +25,31 @@ class _PatientDashboardContainerState extends State<PatientDashboardContainer> {
             Container(
               height: 200,
               width: double.infinity,
-              decoration: BoxDecoration(
-                gradient:const LinearGradient(colors: [
-                  Color(0XFF123CFC),
-                  Color(0XFF6ADADB),
-                ]),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Image(image: AssetImage("assets/images/plot.png"),width: 70,),
-                  Text("Your Heart\nIs Being Monitored",
-                     textAlign: TextAlign.center,
-                     style: primaryFont.copyWith(
-                       fontSize: 20,
-                       fontWeight: FontWeight.w600,
-                       color: AppColors.white,
+              decoration: const BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/grid_imge.png"),fit: BoxFit.fill)),
+              child: GetBuilder(
+                builder: (EcgScreenController ecgScreenController) {
+                  return Container(
+                      height: 300,
+                      child: ValueListenableBuilder<double>(
+                        builder: (context, value, _) {
+                          return ValueListenableBuilder<double>(
+                            builder: (context, value, _) {
+                              return GradientLineGraphView2(
+                                min: -10000,
+                                max: 10000,
+                                value: ecgScreenController.value.value,
+                                precentage: ecgScreenController.i1.value,
+                                color:  Colors.blue.withOpacity(0.7),
+                                duration: const Duration(milliseconds: 1),
+                              );
+                            },
+                            valueListenable: ecgScreenController.value,
+                          );
+                        },
+                        valueListenable: ecgScreenController.i1,
                       ),
-                  ),
-                  const Image(image: AssetImage("assets/images/plot.png"),width: 70,),
-                ],
+                    );
+                }
               ),
             ),
             Gap(height: 15,),
@@ -278,22 +284,31 @@ class _PatientDashboardContainerState extends State<PatientDashboardContainer> {
                                   ),
                             ],
                           ),
-                          Container(
-                            height: 48,
-                            width: 114,
-                            decoration: BoxDecoration(
-                              color: AppColors.blue,
-                              borderRadius: BorderRadius.circular(10)
-                            ),
-                            child: Center(
-                              child:  Text("Pause",
-                                    style: primaryFont.copyWith(
-                                     fontSize: 16,
-                                     fontWeight: FontWeight.w500,
-                                     color: AppColors.white,
-                                     ),
+                          GetBuilder(
+                            builder: (EcgScreenController controller) {
+                              return GestureDetector(
+                                onTap: () {
+                                  controller.startEcgCommand();
+                                },
+                                child: Container(
+                                  height: 48,
+                                  width: 114,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.blue,
+                                    borderRadius: BorderRadius.circular(10)
                                   ),
-                            ),
+                                  child: Center(
+                                    child:  Text("Pause",
+                                          style: primaryFont.copyWith(
+                                           fontSize: 16,
+                                           fontWeight: FontWeight.w500,
+                                           color: AppColors.white,
+                                           ),
+                                        ),
+                                  ),
+                                ),
+                              );
+                            }
                           ),
                         ],
                       ),
