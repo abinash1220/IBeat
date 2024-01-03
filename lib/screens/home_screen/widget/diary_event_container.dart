@@ -169,7 +169,7 @@ class _DiaryEventContainerState extends State<DiaryEventContainer> {
                           ),
                         ),
                 ),
-                Gap(height: 25,),
+                Gap(height: 17,),
                 //NextButton(text: "Submit"),
         ],
       ),

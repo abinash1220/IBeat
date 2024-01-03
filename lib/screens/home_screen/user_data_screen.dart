@@ -18,23 +18,23 @@ class _UserDataScreenState extends State<UserDataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize:const Size.fromHeight(90),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: AppBar(
-            backgroundColor: AppColors.white,
-            elevation: 0,
-            iconTheme:const IconThemeData(color: AppColors.navy),
-            title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
-            centerTitle: true,
-          ),
-        ),
-      ),
-      drawer:const Drawer(
-        backgroundColor: AppColors.white,
-        child: DrawerScreen(),
-      ),
+      // appBar: PreferredSize(
+      //   preferredSize:const Size.fromHeight(90),
+      //   child: Padding(
+      //     padding: const EdgeInsets.only(top: 20),
+      //     child: AppBar(
+      //       backgroundColor: AppColors.white,
+      //       elevation: 0,
+      //       iconTheme:const IconThemeData(color: AppColors.navy),
+      //       title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
+      //       centerTitle: true,
+      //     ),
+      //   ),
+      // ),
+      // drawer:const Drawer(
+      //   backgroundColor: AppColors.white,
+      //   child: DrawerScreen(),
+      // ),
       body: Container(
         decoration:const BoxDecoration(
         gradient: LinearGradient(

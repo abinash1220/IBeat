@@ -38,7 +38,7 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
               weekdays: const ["Sun","Mon", "Tue", "Wed", "Thu", "Fri","Sat"],
               daysInWeek: 7,
             ),
-            Gap(height: 20,),
+            //Gap(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -123,7 +123,7 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
                ),
               ],
             ),
-            Gap(height: 15,),
+            //Gap(height: 15,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -222,7 +222,7 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
                ),
               ],
             ),
-            Gap(height: 15,),
+            //Gap(height: 15,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -263,7 +263,7 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
                         Row(
                           children: [
                             const Icon(Icons.heart_broken_rounded,size: 14,),
-                            Gap(width: 5,),
+                            Gap(width: 5),
                              Text("Chest discomfort",
                               style: primaryFont.copyWith(
                                fontSize: 12,
@@ -307,8 +307,8 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
                ),
               ],
             ),
-            Gap(height: 15,),
-            NextButton(text: "Add new diary"),
+            Gap(height: 0,),
+            //NextButton(text: "Add new diary"),
         ],
       ),
     );

@@ -175,7 +175,7 @@ class _PatientDashboardContainerState extends State<PatientDashboardContainer> {
               ],
             ),
             //
-            Gap(height: 20,),
+            Gap(height: 20),
             Container(
               height: 160,
               width: double.infinity,

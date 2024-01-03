@@ -4,6 +4,7 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/screens/activities_screen/activitity_screen.dart';
 import 'package:i_beat/screens/home_screen/home_screen.dart';
 import 'package:i_beat/screens/home_screen/user_data_screen.dart';
+import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
 import 'package:i_beat/screens/settings_screen/device_screen.dart';
 
 class HomeBottomBar extends StatefulWidget {
@@ -46,6 +47,23 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       Image(image:const AssetImage("assets/icons/man.png"),height: 30,color:_selectedItemPosition == 2 ?AppColors.white : AppColors.textBlack,),
     ];
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize:const Size.fromHeight(90),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: AppBar(
+            backgroundColor: AppColors.white,
+            elevation: 0,
+            iconTheme:const IconThemeData(color: AppColors.navy),
+            title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
+            centerTitle: true,
+          ),
+        ),
+      ),
+      drawer:const Drawer(
+        backgroundColor: Colors.white,
+        child: DrawerScreen(),
+        ),
       body: screens[_selectedItemPosition],
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedItemPosition,
