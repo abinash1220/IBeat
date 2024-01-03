@@ -44,6 +44,7 @@ dependencies:
   percent_indicator: ^4.2.3
   weekly_date_picker: ^1.4.2
   flutter_launcher_icons: ^0.13.1
+  flutter_screenutil: ^5.9.0
 
 dev_dependencies:
   flutter_test:

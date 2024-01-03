@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
@@ -215,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius:
                         BorderRadius.circular(20.0)),
                 child: Container(
-                  height: 420,
+                  height: 420.h,
                   decoration: BoxDecoration(
                     color:AppColors.white,
                     borderRadius: BorderRadius.circular(10)
