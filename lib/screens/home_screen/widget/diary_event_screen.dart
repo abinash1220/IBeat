@@ -18,41 +18,39 @@ class _DiaryEventScreenState extends State<DiaryEventScreen> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 0),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            if(diaryEvent == false)
-            const DiaryEventListScreen(),
-            if(diaryEvent == true)
-            const DiaryEventContainer(),
-            
-            // if(diaryEvent == false)
-            
-            //  Padding(
-            //    padding: const EdgeInsets.only(left: 15,right: 15),
-            //    child: InkWell(
-            //     onTap: (){
-            //       setState(() {
-            //         diaryEvent = true;
-            //       });
-            //     },
-            //     child: NextButton(text: "Add new diary")),
-            //  ),
-            //  if(diaryEvent == true)
-            
-             Padding(
-               padding: const EdgeInsets.only(left: 15,right: 15,top: 5),
-               child: InkWell(
-                onTap: (){
-                  setState(() {
-                    diaryEvent = !diaryEvent;
-                  });
-                },
-                child: NextButton(text: "Submit")),
-             ),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          if(diaryEvent == false)
+          const DiaryEventListScreen(),
+          if(diaryEvent == true)
+          const DiaryEventContainer(),
+          
+          // if(diaryEvent == false)
+          
+          //  Padding(
+          //    padding: const EdgeInsets.only(left: 15,right: 15),
+          //    child: InkWell(
+          //     onTap: (){
+          //       setState(() {
+          //         diaryEvent = true;
+          //       });
+          //     },
+          //     child: NextButton(text: "Add new diary")),
+          //  ),
+          //  if(diaryEvent == true)
+          const Spacer(),
+           Padding(
+             padding: const EdgeInsets.only(left: 15,right: 15,bottom: 22),
+             child: InkWell(
+              onTap: (){
+                setState(() {
+                  diaryEvent = !diaryEvent;
+                });
+              },
+              child: NextButton(text: "Submit")),
+           ),
+        ],
       ),
     );
   }
