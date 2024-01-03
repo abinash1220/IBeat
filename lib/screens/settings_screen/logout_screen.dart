@@ -66,7 +66,13 @@ class _LogoutScreenState extends State<LogoutScreen> {
                     color: AppColors.textGrey
                   ),),
                 ),
-                Divider(color: Colors.grey[300],),
+                //Divider(color: Colors.grey[300],),
+                Gap(height: 10,),
+                Container(
+                      height: 1,
+                      width: double.infinity,
+                      color: Colors.grey[300],
+                    ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -87,7 +93,7 @@ class _LogoutScreenState extends State<LogoutScreen> {
                       ),
                     ),
                     Container(
-                      height: 30,
+                      height: 47,
                       width: 1,
                       color: Colors.grey[300],
                     ),
@@ -122,23 +128,6 @@ class _LogoutScreenState extends State<LogoutScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor:const Color.fromRGBO(252, 249, 249, 1),
-      appBar: PreferredSize(
-        preferredSize:const Size.fromHeight(90),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: AppBar(
-            backgroundColor: AppColors.white,
-            elevation: 0,
-            iconTheme:const IconThemeData(color: AppColors.navy),
-            title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
-            centerTitle: true,
-          ),
-        ),
-      ),
-      drawer:const Drawer(
-        backgroundColor: AppColors.white,
-        child: DrawerScreen(),
-        ),
         body: Container(
           decoration:const BoxDecoration(
         gradient: LinearGradient(

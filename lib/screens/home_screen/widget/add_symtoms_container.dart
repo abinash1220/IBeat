@@ -62,8 +62,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          child: Image(image: AssetImage("assets/icons/dizzi.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                         ),
                       ),
@@ -88,8 +89,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          child: Image(image: AssetImage("assets/icons/breath.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                         ),
                       ),
@@ -114,8 +116,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          child: Image(image: AssetImage("assets/icons/body.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                         ),
                       ),
@@ -166,8 +169,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          child: Image(image: AssetImage("assets/icons/cold.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                         ),
                       ),
@@ -190,8 +194,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                                                ),
                                                child:const Center(
-                          child: Image(image: AssetImage("assets/icons/chest.png"),
+                          child: Image(image: AssetImage("assets/icons/fatigue.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                                                ),
                                              ),
@@ -215,8 +220,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/cold.png"),
+                          child: Image(image: AssetImage("assets/icons/sleep.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                         ),
                       ),
@@ -240,7 +246,7 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/sleep.png"),
+                          child: Image(image: AssetImage("assets/icons/palpi.png"),
                           height: 24,
                           width: 24,),
                         ),
@@ -265,8 +271,9 @@ class _AddSymtomsContainerState extends State<AddSymtomsContainer> {
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child:const Center(
-                          child: Image(image: AssetImage("assets/icons/pain.png"),
+                          child: Image(image: AssetImage("assets/icons/nausea.png"),
                           height: 24,
+                          color: AppColors.textBlack,
                           width: 24,),
                         ),
                       ),

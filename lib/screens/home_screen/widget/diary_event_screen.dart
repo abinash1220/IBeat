@@ -12,21 +12,44 @@ class DiaryEventScreen extends StatefulWidget {
 
 class _DiaryEventScreenState extends State<DiaryEventScreen> {
 
-  bool diaryEvent = true;
+  bool diaryEvent = false;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          if(diaryEvent == false)
-          const DiaryEventListScreen(),
-          if(diaryEvent == true)
-          const DiaryEventContainer(),
-           NextButton(text: "Add new diary"),
-        ],
+      padding: const EdgeInsets.only(bottom: 0),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            if(diaryEvent == false)
+            const DiaryEventListScreen(),
+            if(diaryEvent == true)
+            const DiaryEventContainer(),
+            if(diaryEvent == false)
+             Padding(
+               padding: const EdgeInsets.only(left: 15,right: 15),
+               child: InkWell(
+                onTap: (){
+                  setState(() {
+                    diaryEvent = true;
+                  });
+                },
+                child: NextButton(text: "Add new diary")),
+             ),
+             if(diaryEvent == true)
+             Padding(
+               padding: const EdgeInsets.only(left: 15,right: 15,top: 5),
+               child: InkWell(
+                onTap: (){
+                  setState(() {
+                    diaryEvent = false;
+                  });
+                },
+                child: NextButton(text: "Submit")),
+             ),
+          ],
+        ),
       ),
     );
   }

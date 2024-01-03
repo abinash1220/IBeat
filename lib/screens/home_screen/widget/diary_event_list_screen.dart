@@ -263,7 +263,7 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
                         Row(
                           children: [
                             const Icon(Icons.heart_broken_rounded,size: 14,),
-                            Gap(width: 5,),
+                            Gap(width: 5),
                              Text("Chest discomfort",
                               style: primaryFont.copyWith(
                                fontSize: 12,
@@ -307,8 +307,8 @@ class _DiaryEventListScreenState extends State<DiaryEventListScreen> {
                ),
               ],
             ),
-            Gap(height: 15,),
-            NextButton(text: "Add new diary"),
+            Gap(height: 18,),
+            //NextButton(text: "Add new diary"),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:i_beat/constants/app_colors.dart';
+import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
 import 'package:i_beat/screens/settings_screen/device_screen.dart';
 import 'package:i_beat/screens/settings_screen/logout_screen.dart';
 import 'package:i_beat/screens/settings_screen/privacy_policy_t&c_screen.dart';
@@ -45,6 +46,23 @@ class _SettingBottomBarState extends State<SettingBottomBar> {
       Image(image:const AssetImage("assets/icons/logout.png"),height: 30,color:_selectedItemPosition == 2 ?AppColors.white : AppColors.textBlack,),
     ];
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize:const Size.fromHeight(90),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: AppBar(
+            backgroundColor: AppColors.white,
+            elevation: 0,
+            iconTheme:const IconThemeData(color: AppColors.navy),
+            title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
+            centerTitle: true,
+          ),
+        ),
+      ),
+      drawer:const Drawer(
+        backgroundColor: Colors.white,
+        child: DrawerScreen(),
+        ),
       body: screens[_selectedItemPosition],
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedItemPosition,

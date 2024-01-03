@@ -21,10 +21,17 @@ class _ActivityScreenState extends State<ActivityScreen> {
 
    int activities = 999;
   
-  List<String> title = ["Running", "Excercise", "Steps", "Walking"];
-  List<String> img = ["assets/icons/run.png", "assets/icons/exe.png", "assets/icons/step.png", "assets/icons/walk.png"];
+  //List<String> title = ["Running", "Excercise", "Steps", "Walking"];
+  //List<String> img = ["assets/icons/run.png", "assets/icons/exe.png", "assets/icons/step.png", "assets/icons/walk.png"];
 
-  List<ActivityModel >  actvity = [ActivityModel(title: "o",image: "url")];
+  List<ActivityModel> actvity = [ActivityModel(title: "Running",image: "assets/icons/run.png"),
+                                  ActivityModel(title: "Excercise",image: "assets/icons/exe.png"),
+                                  ActivityModel(title: "Steps",image: "assets/icons/step.png"),
+                                  ActivityModel(title: "Walking",image: "assets/icons/walk.png"),
+                                  ActivityModel(title: "Running",image: "assets/icons/run.png"),
+                                  ActivityModel(title: "Excercise",image: "assets/icons/exe.png"),
+                                  ActivityModel(title: "Steps",image: "assets/icons/step.png"),
+                                  ActivityModel(title: "Walking",image: "assets/icons/walk.png")];
   List<String> selectedItems = [];
 
   bool diaryEvent = false;
@@ -32,23 +39,23 @@ class _ActivityScreenState extends State<ActivityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-        preferredSize:const Size.fromHeight(90),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: AppBar(
-            backgroundColor: AppColors.white,
-            elevation: 0,
-            iconTheme:const IconThemeData(color: AppColors.navy),
-            title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
-            centerTitle: true,
-          ),
-        ),
-      ),
-      drawer:const Drawer(
-        backgroundColor: AppColors.white,
-        child: DrawerScreen(),
-        ),
+      //   appBar: PreferredSize(
+      //   preferredSize:const Size.fromHeight(90),
+      //   child: Padding(
+      //     padding: const EdgeInsets.only(top: 20),
+      //     child: AppBar(
+      //       backgroundColor: AppColors.white,
+      //       elevation: 0,
+      //       iconTheme:const IconThemeData(color: AppColors.navy),
+      //       title:const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
+      //       centerTitle: true,
+      //     ),
+      //   ),
+      // ),
+      // drawer:const Drawer(
+      //   backgroundColor: AppColors.white,
+      //   child: DrawerScreen(),
+      //   ),
         body: Container(
           decoration:const BoxDecoration(
         gradient: LinearGradient(
@@ -83,159 +90,215 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   Gap(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          InkWell(
-                                    onTap: (){
-                                      if(activities != homeController.activeIndex.value){
-                                         homeController.activeIndex(999);
-                                      }else{
-                                         homeController.activeIndex(0);
-                                      }
-                                      
-                                    },
-                                    child: Container(
-                                      height: 74,
-                                      width: 74,
-                                      decoration: BoxDecoration(
-                                        color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Center(
-                                        child: Image(image:const AssetImage("assets/icons/run.png"),
-                                        height: 40,
-                                        color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                  
+                  Container(
+                    height: 200,
+                    child: GridView.builder(
+                      itemCount: actvity.length,
+                      gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,),
+                      itemBuilder: (BuildContext context, int index) {
+                        ActivityModel item = actvity[index];
+                        return Column(
+                              children: [
+                                InkWell(
+                                   onTap: (){
+                                     setState(() {
+                                      if (selectedItems.contains(item)) {
+                                         selectedItems.remove(item);
+                                      } else {
+                                         selectedItems.add(item.toString());
+                                          }
+                                         });
+                                          },
+                                          child: Container(
+                                            height: 70,
+                                            width: 70,
+                                            decoration: BoxDecoration(
+                                              color:selectedItems.contains(item) ? AppColors.blue : AppColors.white,
+                                              borderRadius: BorderRadius.circular(10),
+                                              boxShadow:const [
+                                                BoxShadow(
+                                                  blurRadius: 0.5,
+                                                  color: Color.fromARGB(255, 217, 215, 215)
+                                                )
+                                              ]
+                                            ),
+                                            child: Center(
+                                              child: Image(image: AssetImage(actvity[index].image),
+                                              height: 40,
+                                              color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                                              ),
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  Gap(height: 5,),
-                                  Text("Running",
-                                  textAlign: TextAlign.center,
-                                    style: primaryFont.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.textBlack
-                                   ),
-                                  ),
-                                ],
-                      ),
-                      Column(
-                        children: [
-                          InkWell(
-                                    onTap: (){
-                                      if(activities != homeController.activeIndex.value){
-                                         homeController.activeIndex(999);
-                                      }else{
-                                         homeController.activeIndex(0);
-                                      }
-                                      
-                                    },
-                                    child: Container(
-                                      height: 74,
-                                      width: 74,
-                                      decoration: BoxDecoration(
-                                        color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Center(
-                                        child: Image(image:const AssetImage("assets/icons/exe.png"),
-                                        height: 40,
-                                        color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                                        Gap(height: 3,),
+                                        Text(actvity[index].title,
+                                        textAlign: TextAlign.center,
+                                          style: primaryFont.copyWith(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.textBlack
+                                         ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  Gap(height: 5,),
-                                  Text("Excercise",
-                                  textAlign: TextAlign.center,
-                                    style: primaryFont.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.textBlack
-                                   ),
-                                  ),
-                                ],
-                      ),
-                      Column(
-                        children: [
-                          InkWell(
-                                    onTap: (){
-                                      if(activities != homeController.activeIndex.value){
-                                         homeController.activeIndex(999);
-                                      }else{
-                                         homeController.activeIndex(0);
-                                      }
-                                      
-                                    },
-                                    child: Container(
-                                      height: 74,
-                                      width: 74,
-                                      decoration: BoxDecoration(
-                                        color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Center(
-                                        child: Image(image:const AssetImage("assets/icons/step.png"),
-                                        height: 40,
-                                        color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Gap(height: 5,),
-                                  Text("Steps",
-                                  textAlign: TextAlign.center,
-                                    style: primaryFont.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.textBlack
-                                   ),
-                                  ),
-                                ],
-                      ),
-                      Column(
-                        children: [
-                          InkWell(
-                                    onTap: (){
-                                      if(activities != homeController.activeIndex.value){
-                                         homeController.activeIndex(999);
-                                      }else{
-                                         homeController.activeIndex(0);
-                                      }
-                                      
-                                    },
-                                    child: Container(
-                                      height: 74,
-                                      width: 74,
-                                      decoration: BoxDecoration(
-                                        color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Center(
-                                        child: Image(image:const AssetImage("assets/icons/walk.png"),
-                                        height: 40,
-                                        color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Gap(height: 5,),
-                                  Text("Walking",
-                                  textAlign: TextAlign.center,
-                                    style: primaryFont.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.textBlack
-                                   ),
-                                  ),
-                                ],
-                      ),
-                    ],
+                                      ],
+                            );
+                      }
+                    ),
                   ),
+
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Column(
+                  //       children: [
+                  //         InkWell(
+                  //                   onTap: (){
+                  //                     if(activities != homeController.activeIndex.value){
+                  //                        homeController.activeIndex(999);
+                  //                     }else{
+                  //                        homeController.activeIndex(0);
+                  //                     }
+                                      
+                  //                   },
+                  //                   child: Container(
+                  //                     height: 74,
+                  //                     width: 74,
+                  //                     decoration: BoxDecoration(
+                  //                       color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
+                  //                       borderRadius: BorderRadius.circular(10),
+                  //                     ),
+                  //                     child: Center(
+                  //                       child: Image(image:const AssetImage("assets/icons/run.png"),
+                  //                       height: 40,
+                  //                       color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //                 Gap(height: 5,),
+                  //                 Text("Running",
+                  //                 textAlign: TextAlign.center,
+                  //                   style: primaryFont.copyWith(
+                  //                     fontSize: 12,
+                  //                     fontWeight: FontWeight.w400,
+                  //                     color: AppColors.textBlack
+                  //                  ),
+                  //                 ),
+                  //               ],
+                  //     ),
+                  //     Column(
+                  //       children: [
+                  //         InkWell(
+                  //                   onTap: (){
+                  //                     if(activities != homeController.activeIndex.value){
+                  //                        homeController.activeIndex(999);
+                  //                     }else{
+                  //                        homeController.activeIndex(0);
+                  //                     }
+                                      
+                  //                   },
+                  //                   child: Container(
+                  //                     height: 74,
+                  //                     width: 74,
+                  //                     decoration: BoxDecoration(
+                  //                       color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
+                  //                       borderRadius: BorderRadius.circular(10),
+                  //                     ),
+                  //                     child: Center(
+                  //                       child: Image(image:const AssetImage("assets/icons/exe.png"),
+                  //                       height: 40,
+                  //                       color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //                 Gap(height: 5,),
+                  //                 Text("Excercise",
+                  //                 textAlign: TextAlign.center,
+                  //                   style: primaryFont.copyWith(
+                  //                     fontSize: 12,
+                  //                     fontWeight: FontWeight.w400,
+                  //                     color: AppColors.textBlack
+                  //                  ),
+                  //                 ),
+                  //               ],
+                  //     ),
+                  //     Column(
+                  //       children: [
+                  //         InkWell(
+                  //                   onTap: (){
+                  //                     if(activities != homeController.activeIndex.value){
+                  //                        homeController.activeIndex(999);
+                  //                     }else{
+                  //                        homeController.activeIndex(0);
+                  //                     }
+                                      
+                  //                   },
+                  //                   child: Container(
+                  //                     height: 74,
+                  //                     width: 74,
+                  //                     decoration: BoxDecoration(
+                  //                       color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
+                  //                       borderRadius: BorderRadius.circular(10),
+                  //                     ),
+                  //                     child: Center(
+                  //                       child: Image(image:const AssetImage("assets/icons/step.png"),
+                  //                       height: 40,
+                  //                       color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //                 Gap(height: 5,),
+                  //                 Text("Steps",
+                  //                 textAlign: TextAlign.center,
+                  //                   style: primaryFont.copyWith(
+                  //                     fontSize: 12,
+                  //                     fontWeight: FontWeight.w400,
+                  //                     color: AppColors.textBlack
+                  //                  ),
+                  //                 ),
+                  //               ],
+                  //     ),
+                  //     Column(
+                  //       children: [
+                  //         InkWell(
+                  //                   onTap: (){
+                  //                     if(activities != homeController.activeIndex.value){
+                  //                        homeController.activeIndex(999);
+                  //                     }else{
+                  //                        homeController.activeIndex(0);
+                  //                     }
+                                      
+                  //                   },
+                  //                   child: Container(
+                  //                     height: 74,
+                  //                     width: 74,
+                  //                     decoration: BoxDecoration(
+                  //                       color:homeController.activeIndex.value == activities ? AppColors.blue : AppColors.white,
+                  //                       borderRadius: BorderRadius.circular(10),
+                  //                     ),
+                  //                     child: Center(
+                  //                       child: Image(image:const AssetImage("assets/icons/walk.png"),
+                  //                       height: 40,
+                  //                       color: homeController.activeIndex.value == activities ? AppColors.white : AppColors.textBlack,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //                 Gap(height: 5,),
+                  //                 Text("Walking",
+                  //                 textAlign: TextAlign.center,
+                  //                   style: primaryFont.copyWith(
+                  //                     fontSize: 12,
+                  //                     fontWeight: FontWeight.w400,
+                  //                     color: AppColors.textBlack
+                  //                  ),
+                  //                 ),
+                  //               ],
+                  //     ),
+                  //   ],
+                  // ),
                   Gap(height: 50,),
                   Container(
                         height: 48,
