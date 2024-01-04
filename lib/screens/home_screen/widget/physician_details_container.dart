@@ -176,7 +176,7 @@ Row(
   children:  [
 Container(
   // patientidqLf (1320:12409)
-  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 160*fem, 0*fem),
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 165*fem, 0*fem),
   child:  
 Text(
   'Care team',
@@ -211,7 +211,7 @@ Row(
   children:  [
 Container(
   // edkhihkdRZm (1320:12404)
-  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 70*fem, 0*fem),
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 75*fem, 0*fem),
   child:  
 Text(
   'J.Ramakrishnan',

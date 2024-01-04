@@ -69,7 +69,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(25),
                         ),
                         controller: tabController,
-                        
                         labelColor: AppColors.white,
                         indicatorSize: TabBarIndicatorSize.tab,
                         unselectedLabelColor: AppColors.textBlack,

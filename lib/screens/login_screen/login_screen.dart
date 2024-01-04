@@ -6,6 +6,7 @@ import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/hooks/next_button.dart';
 import 'package:i_beat/screens/bottom_nav_bar/home_bottom_bar_screen.dart';
+import 'package:i_beat/screens/bottom_nav_bar/settings_bottom_bar_screen.dart';
 import 'package:i_beat/screens/forgot_password/forgot_password_screen.dart';
 import 'package:i_beat/screens/login_screen/qr_manual_screen.dart';
 import 'package:i_beat/screens/login_screen/qr_screen.dart';
@@ -49,7 +50,8 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 20,),
               InkWell(
                 onTap: (){
-                  Get.to(const QRViewExample());
+                  qrPrivacyPolicy();
+                  //Get.to(const QRViewExample());
                 },
                 child: Container(
                   height: 80,
@@ -71,7 +73,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                              ),),
                        InkWell(
                         onTap: (){
-                          Get.to(const QRViewExample());
+                          qrPrivacyPolicy();
+                         // Get.to(const QRViewExample());
                         },
                          child: Container(
                           height: 68,
@@ -296,7 +299,121 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         InkWell(
                           onTap: (){
-                            Get.to(HomeBottomBar());
+                            Get.to(SettingBottomBar(index: 1,));
+                          },
+                          child: Container(
+                            width: 90,
+                            child: Text("Continue",
+                              style: primaryFont.copyWith(
+                                 fontSize: 17,
+                                 fontWeight: FontWeight.w400,
+                                  color: AppColors.blue
+                             ),),
+                          ),
+                        ),
+                      ],
+                    ),
+                    ],
+                  ),
+                ),
+              );
+            }
+          );
+        });
+  }
+
+  qrPrivacyPolicy(){
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Dialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(20.0)),
+                child: IntrinsicHeight(
+                  // decoration: BoxDecoration(
+                  //   color:AppColors.white,
+                  //   borderRadius: BorderRadius.circular(10)
+                  // ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Gap(height: 10,),
+                      Text("Privacy policy",
+                       style: primaryFont.copyWith(
+                       fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.textBlack
+                    ),),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
+                      child: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.It has survived not only five centuries,Lorem Ipsum is  the  Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's, lorem ipsum is the",
+                         style: primaryFont.copyWith(
+                         fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.textGrey
+                      ),),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.only(left: 5,right: 20,top: 10,bottom: 10),
+                      child: Row(
+                        children: [
+                          Checkbox(
+                            checkColor: Colors.white,
+                           // fillColor:  Color.fromARGB(255, 5, 101, 180),
+                            value: isChecked,
+                            onChanged: (bool? value) {
+                               setState(() {
+                                  isChecked = value!;
+                                  });
+                                },
+                           ),
+                          Text("By proceeding you agree to iBeat\nprivacy policy, user agreement\nand T&C",
+                             style: primaryFont.copyWith(
+                             fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.textGrey
+                          ),),
+                        ],
+                      ),
+                    ),
+                    //Divider(color: Colors.grey[300],),
+                    Gap(height: 10,),
+                    Container(
+                          height: 1,
+                          width: double.infinity,
+                          color: Colors.grey[300],
+                        ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: (){
+                            Get.back();
+                          },
+                          child: Container(
+                            width: 90,
+                            child: Center(
+                              child: Text("Cancel",
+                                style: primaryFont.copyWith(
+                                   fontSize: 17,
+                                   fontWeight: FontWeight.w400,
+                                    color: AppColors.red
+                               ),),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 58,
+                          width: 1,
+                          color: Colors.grey[300],
+                        ),
+                        InkWell(
+                          onTap: (){
+                            Get.to(const QRViewExample());
                           },
                           child: Container(
                             width: 90,

@@ -116,7 +116,7 @@ Row(
   children:  [
 Container(
   // michealkoresnUs (1320:12403)
-  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 117*fem, 0*fem),
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 125*fem, 0*fem),
   child:  
 Text(
   'Micheal Kores',
@@ -174,7 +174,7 @@ Row(
   children:  [
 Container(
   // patientidqLf (1320:12409)
-  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 160*fem, 0*fem),
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 165*fem, 0*fem),
   child:  
 Text(
   'Patient ID',
@@ -209,7 +209,7 @@ Row(
   children:  [
 Container(
   // edkhihkdRZm (1320:12404)
-  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 146*fem, 0*fem),
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 155*fem, 0*fem),
   child:  
 Text(
   'EDKHIHKD',

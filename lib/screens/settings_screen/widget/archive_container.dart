@@ -18,11 +18,17 @@ class _ArchiveContainerState extends State<ArchiveContainer> {
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   border:const Border(
-                    bottom: BorderSide(color: AppColors.red,width: 1),
+                    bottom: BorderSide(color: AppColors.blue,width: 1),
                     right: BorderSide(color: AppColors.blue,width: 1),
                     left: BorderSide(color: AppColors.blue,width: 1),
                     ),
-                  borderRadius: BorderRadius.circular(10)
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5.5,
+                      color: AppColors.textGrey
+                    )
+                  ]
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

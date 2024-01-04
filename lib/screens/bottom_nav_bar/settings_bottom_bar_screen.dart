@@ -42,7 +42,8 @@ class _SettingBottomBarState extends State<SettingBottomBar> {
   Widget build(BuildContext context) {
     final icons = <Widget> [
       Image(image:const AssetImage("assets/icons/privacy.png"),height: 30,color:_selectedItemPosition == 0 ?AppColors.white : AppColors.textBlack,),
-      Image(image:const AssetImage("assets/icons/heart.png"),height: 30,color:_selectedItemPosition == 1 ?AppColors.white : AppColors.textBlack,),
+      Icon(Icons.bluetooth,size: 35,color:_selectedItemPosition == 1 ?AppColors.white : AppColors.textBlack,),
+      //Image(image:const AssetImage("assets/icons/heart.png"),height: 30,color:_selectedItemPosition == 1 ?AppColors.white : AppColors.textBlack,),
       Image(image:const AssetImage("assets/icons/logout.png"),height: 30,color:_selectedItemPosition == 2 ?AppColors.white : AppColors.textBlack,),
     ];
     return Scaffold(

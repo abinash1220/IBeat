@@ -6,6 +6,7 @@ import 'package:i_beat/controllers/ecg_screen_controller.dart';
 import 'package:i_beat/controllers/home_controller.dart';
 import 'package:i_beat/controllers/settings_controller.dart';
 import 'package:i_beat/screens/login_screen/login_screen.dart';
+import 'package:i_beat/screens/splash_screen/splash_screen.dart';
 
 void main() {
   Get.put(SettingsController());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'I Beat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: false),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }

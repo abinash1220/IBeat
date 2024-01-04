@@ -41,7 +41,7 @@ class _LogoutScreenState extends State<LogoutScreen> {
                 borderRadius:
                     BorderRadius.circular(20.0)), //this right here
             child: Container(
-              height: 135,
+              height: 136,
               decoration: BoxDecoration(
                 color:AppColors.white,
                 borderRadius: BorderRadius.circular(10)

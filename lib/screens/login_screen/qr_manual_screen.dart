@@ -4,6 +4,7 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/hooks/next_button.dart';
+import 'package:i_beat/screens/bottom_nav_bar/settings_bottom_bar_screen.dart';
 
 class QrManualScreen extends StatefulWidget {
   const QrManualScreen({super.key});
@@ -13,15 +14,18 @@ class QrManualScreen extends StatefulWidget {
 }
 
 class _QrManualScreenState extends State<QrManualScreen> {
+
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+                   // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                         Gap(height: 40,),
                       const Center(
@@ -98,9 +102,10 @@ class _QrManualScreenState extends State<QrManualScreen> {
                       Gap(height: 40,),
                       InkWell(
                          onTap: (){
-                          // Get.to(const RegisterOtpScreen());
+                          //privacyPolicy();
+                           Get.to(SettingBottomBar());
                             },
-                          child: NextButton(text: "Continue")),
+                          child: NextButton(text: "Verify")),
 
             ],
           ),
