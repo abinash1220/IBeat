@@ -89,10 +89,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     fontWeight: FontWeight.w400,
                     color: AppColors.textBlack),
               ),
-              Gap(
-                height: 20,
-              ),
-
+              Gap(height: 20),
               Container(
                 height: 250,
                 child: GridView.builder(
@@ -109,10 +106,10 @@ class _ActivityScreenState extends State<ActivityScreen> {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                if (selectedItems.contains(item)) {
-                                  selectedItems.remove(item);
+                                if (selectedItems.contains(item.title)) {
+                                  selectedItems.remove(item.title);
                                 } else {
-                                  selectedItems.add(item.toString());
+                                  selectedItems.add(item.title);
                                 }
                               });
                             },
@@ -120,7 +117,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               height: 70,
                               width: 70,
                               decoration: BoxDecoration(
-                                  color: selectedItems.contains(item)
+                                  color: selectedItems.contains(item.title)
                                       ? AppColors.blue
                                       : AppColors.white,
                                   borderRadius: BorderRadius.circular(10),
@@ -134,10 +131,9 @@ class _ActivityScreenState extends State<ActivityScreen> {
                                 child: Image(
                                   image: AssetImage(actvity[index].image),
                                   height: 40,
-                                  color: homeController.activeIndex.value ==
-                                          activities
-                                      ? AppColors.white
-                                      : AppColors.textBlack,
+                                  color: selectedItems.contains(item.title)
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                               ),
                             ),

@@ -48,7 +48,7 @@ class _DiaryEventScreenState extends State<DiaryEventScreen> {
                   diaryEvent = !diaryEvent;
                 });
               },
-              child: NextButton(text: "Submit")),
+              child: NextButton(text: diaryEvent ? "Submit" : "Add diary event")),
            ),
         ],
       ),
