@@ -27,7 +27,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
         height: double.infinity,
         child: Scaffold(
           backgroundColor: Colors.white,
-          body: Column(
+          body: ListView(
             children: [
               Gap(height: 30,),
               const Image(image: AssetImage("assets/images/logo.png"),height: 40,),
