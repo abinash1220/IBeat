@@ -52,7 +52,7 @@ class _PatientDashboardContainerState extends State<PatientDashboardContainer> {
                 }
               ),
             ),
-            Gap(height: 15,),
+            Gap(height: 15),
             Padding(
               padding: const EdgeInsets.only(right: 15,left: 15),
               child: Row(
@@ -303,7 +303,7 @@ class _PatientDashboardContainerState extends State<PatientDashboardContainer> {
                                       borderRadius: BorderRadius.circular(10)
                                     ),
                                     child: Center(
-                                      child:  Text("Pause",
+                                      child:  Text("Start",
                                             style: primaryFont.copyWith(
                                              fontSize: 16,
                                              fontWeight: FontWeight.w500,
