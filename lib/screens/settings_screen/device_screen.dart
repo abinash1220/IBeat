@@ -5,6 +5,7 @@ import 'package:i_beat/constants/app_colors.dart';
 import 'package:i_beat/constants/app_fonts.dart';
 import 'package:i_beat/constants/cap.dart';
 import 'package:i_beat/controllers/device_screen_controller.dart';
+import 'package:i_beat/hooks/next_button.dart';
 import 'package:i_beat/screens/home_screen/widget/drawer_screen.dart';
 import 'package:i_beat/screens/settings_screen/widget/device_container.dart';
 
@@ -46,9 +47,14 @@ class _DeviceScreenState extends State<DeviceScreen> {
             children: [
               GetBuilder(builder: (DeviceScreenController controller) {
                 return controller.devices.isEmpty
-                    ? const Text(
-                        "Searching for device...",
-                      )
+                    ? InkWell(
+                      onTap: (){
+                        bottomSheet();
+                      },
+                      child: const Text(
+                          "Searching for device...",
+                        ),
+                    )
                     : Text("Available devices",
                         style: primaryFont.copyWith(
                             fontSize: 20,
@@ -80,4 +86,52 @@ class _DeviceScreenState extends State<DeviceScreen> {
       ),
     );
   }
+
+  bottomSheet(){
+    showModalBottomSheet(
+      shape:const BeveledRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(25),topRight: Radius.circular(25)),
+      ),
+      context: context, 
+      builder: (context) {
+        return Container(
+          height: 310,
+          decoration:const BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(25),topRight: Radius.circular(25)), 
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 15,bottom: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                 Padding(
+                   padding: const EdgeInsets.only(right: 15),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          Get.back();
+                        },
+                        child:const Icon(Icons.cancel,size: 25,color: AppColors.textGrey,))
+                    ],
+                                   ),
+                 ),
+                const Image(image: AssetImage("assets/images/white.gif"),
+                height: 200,width: double.infinity,fit: BoxFit.cover,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20,right: 20),
+                  child: NextButton(text: "Connect"),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+      );
+  }
+
 }
